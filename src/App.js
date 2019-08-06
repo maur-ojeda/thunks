@@ -1,8 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import logo from './logo.svg'
+import './App.css'
+import miThunk from './thunk'
 
-function App() {
+class App extends Component {
+  
+  constructor(props){
+    super(props)
+      const {miThunk} = props
+        miThunk('lala')
+    }
+
+  
+ render(){
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +32,13 @@ function App() {
       </header>
     </div>
   );
+ }
 }
 
-export default App;
+const mapStateToProps = state => state
+
+const mapDispatchToProps = dispatch => ({
+  miThunk: payload => dispatch(miThunk(payload)),
+})
+
+export default connect( mapStateToProps, mapDispatchToProps ) (App);
