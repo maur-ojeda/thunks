@@ -5,12 +5,14 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
-
-
-
 import * as serviceWorker from './serviceWorker';
 
+const initialState = {
+    data:[ 1, 2 ,3 ],
+    selected: 1,
+}
 function reducer (state = {}, action ){
+    console.log(action)
     return state
 }
 

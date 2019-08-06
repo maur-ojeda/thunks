@@ -24,8 +24,9 @@ async( dispatch ,getState ) => {
         const result = await fetch(url)
         const json = await result.json()
         dispatch(fecthSuccess(json))
-        console.log(json)
+        //console.log(json)
     } catch (error) {
+        dispatch(fecthError(error))
     }
     
 }
